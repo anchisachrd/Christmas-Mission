@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #EEE2CE;
+  font-family: "Goudy Bookletter 1911", serif;
+}
