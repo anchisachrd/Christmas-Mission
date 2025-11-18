@@ -3,6 +3,66 @@
 @tailwind utilities;
 
 body {
-  background-color: #EEE2CE;
-  font-family: "Goudy Bookletter 1911", serif;
+  @apply bg-[#EEE2CE] font-goudy;
+}
+
+/* falling animation */
+@keyframes snow-fall {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(10px);
+    opacity: 0;
+  }
+}
+
+
+/* Tailwind cannot animate arbitrary keyframes, so we create classes */
+.snow-fall {
+  animation: snow-fall linear infinite;
+}
+
+@keyframes light-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.15; }
+}
+
+.tree-light {
+  animation: light-blink 1.6s ease-in-out infinite;
+}
+
+/* random delays so lights blink separately */
+.light-1 { animation-delay: 0s; }
+.light-2 { animation-delay: 0.3s; }
+.light-3 { animation-delay: 0.6s; }
+
+
+@keyframes star-glow {
+  0%   { filter: drop-shadow(0 0 10px #FFD95A) drop-shadow(0 0 20px #FFD95A); }
+  50%  { filter: drop-shadow(0 0 18px #FFE28A) drop-shadow(0 0 32px #FFE28A); }
+  100% { filter: drop-shadow(0 0 10px #FFD95A) drop-shadow(0 0 20px #FFD95A); }
+}
+
+.tree-star {
+  animation: star-glow 5s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out;
 }

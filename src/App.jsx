@@ -1,4 +1,5 @@
 import Landing from './pages/Landing'
+import AgreementModal from './components/AgreementModal'
 
 function App() {
 
@@ -6,7 +7,7 @@ function App() {
   return (
     <>
       <Landing/>
-      
+     
     </>
   )
 }
