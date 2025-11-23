@@ -21,7 +21,7 @@ const SNOW_ITEMS = [
 
 export default function SnowDrop() {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden z-50">
+    <div className="pointer-events-none absolute inset-0 overflow-hidden z-0">
       {SNOW_ITEMS.map((item, i) => (
         <img
           key={i}

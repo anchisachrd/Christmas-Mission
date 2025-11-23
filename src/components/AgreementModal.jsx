@@ -1,43 +1,48 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
-export default function AgreementModal() {
+export default function AgreementModal({onStart}) {
   const [name, setName] = useState("");
-  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const correctNames = ["Devin", "Dev", "Baby"];
 
   const handleStart = () => {
     const input = name.trim().toLowerCase();
 
-    // check if input matches ANY correct name
-    const isValid = correctNames.some((n) => n.toLowerCase() === input);
-
-    if (!isValid) {
-      setError(true);
-      console.log("Invalid name entered:", name);
+    // CASE 1: nothing typed
+    if (input === "") {
+      setErrorMessage(
+        "Please enter your full name to sign the agreement that you cannot disagree with"
+      );
       return;
     }
 
-    setError(false);
-    // onStart();
-    console.log("Agreement accepted, starting missions...");
+    // CASE 2: wrong name
+    const isValid = correctNames.some(
+      (n) => n.toLowerCase() === input
+    );
+
+    if (!isValid) {
+      setErrorMessage("This is not your name baby");
+      return;
+    }
+
+    // CASE 3: correct name
+    setErrorMessage("");
+    onStart(); // <-- call this when you connect it to the next page
   };
 
   return (
-    <div
-      className="fixed inset-0 flex items-start justify-center z-50"
-      //   onClick={onClose}
-    >
+    <div className="fixed inset-0 flex items-start justify-center z-50">
       <div
         className="
           translate-y-40 w-[280px] rounded-[24px] bg-[#D9D6D6]/60
           px-3 py-6 
         "
-        onClick={(e) => e.stopPropagation()} // prevent closing when clicking content
+        onClick={(e) => e.stopPropagation()}
       >
         <p className="text-lg text-[#4B3A32] font-cinzel text-center mb-4">
-          Before You Begin, Babe
+          Before You Begin
         </p>
 
         <div className="text-[#4B3A32] text-base text-center mb-3">
@@ -59,7 +64,7 @@ export default function AgreementModal() {
           value={name}
           onChange={(e) => {
             setName(e.target.value);
-            setError(false);
+            setErrorMessage(""); // ✅ reset message when he types
           }}
           className="
             w-full mt-1 mb-2
@@ -72,19 +77,22 @@ export default function AgreementModal() {
             focus:ring-1 focus:ring-[#7D944F]
           "
         />
-         <p
-          className={`text-center text-[11px] font-nunito mb-6 transition-colors ${
-            error ? "text-red-600" : "text-[#4B3A32]"
-          }`}
+
+        {/* Dynamic message */}
+        <p
+          className={`
+            text-center text-[11px] font-nunito mb-6 transition-colors
+            ${errorMessage ? "text-red-600" : "text-[#4B3A32]"}
+          `}
         >
-          Please enter your full name to sign the agreement that you cannot
-          disagree with
+          {errorMessage ||
+            "Please enter your full name to sign the agreement that you cannot disagree with"}
         </p>
 
         <div className="flex justify-center">
           <button
-          onClick={handleStart}
-        className={`px-4 py-1.5 rounded-md text-white text-base bg-[#7D944F]`}
+            onClick={handleStart}
+            className="px-4 py-1.5 rounded-md text-white text-base bg-[#7D944F]"
           >
             Let's Start
           </button>
