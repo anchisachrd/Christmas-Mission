@@ -31,6 +31,7 @@ export default function SnowDrop() {
             width: item.size,
             height: item.size,
             left: item.left,
+            top: "-20px",  
             animationDuration: `${item.duration}s`,
             animationDelay: `${item.delay}s`,
           }}
