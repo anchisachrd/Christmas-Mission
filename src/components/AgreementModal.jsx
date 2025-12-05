@@ -4,7 +4,7 @@ export default function AgreementModal({onStart}) {
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const correctNames = ["Devin", "Dev", "Baby"];
+  const correctNames = ["Devin", "Dev", "Baby", "Devin Larry Estrada", "Devin Larry Moore"];
 
   const handleStart = () => {
     const input = name.trim().toLowerCase();

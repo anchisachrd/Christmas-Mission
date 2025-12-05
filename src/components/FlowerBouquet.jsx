@@ -1,6 +1,5 @@
 import { useState,  } from "react";
 import cardImage from "../assets/devin-card.png";
-import wallpaperImage from "../assets/devin-wallpaper.png";
 export default function FlowerBouquet() {
   const [hasTakenFlower, setHasTakenFlower] = useState(false);
     const [clicked, setClicked] = useState(false);
@@ -10,9 +9,7 @@ export default function FlowerBouquet() {
 
     setTimeout(() => {
       setHasTakenFlower(true);
-      // trigger downloads here
       downloadImportedFile(cardImage, "Christmas-card-from-Earn.png");
-      downloadImportedFile(wallpaperImage, "Christmas-wallpaper-from-Earn.png");
     }, 150);
   };
 

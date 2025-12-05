@@ -6,7 +6,7 @@ export default function MerryChristmas({ onGiftClick }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowTapCircle(true);
-    }, 4500); // 2 seconds
+    }, 2000); // 2 seconds
 
     return () => clearTimeout(timer);
   }, []);
