@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { sendMissionAnswer } from "../utils/sendMissionAnswer";
 
-export default function MissionQuestionModal({ mission, onClose }) {
+export default function MissionQuestionModal({ mission, onClose, onSuccess }) {
   const [answer, setAnswer] = useState("");
   const [error, setError] = useState("");
   const [isSending, setIsSending] = useState(false);
@@ -20,11 +20,16 @@ export default function MissionQuestionModal({ mission, onClose }) {
 
     try {
       await sendMissionAnswer({ mission, answer });
+
+     
       setSuccessMessage("Your answer has flown into my inbox 💌");
       // optional: close after a short delay
       setTimeout(() => {
+        onSuccess?.(answer);
         onClose();
       }, 2000);
+
+        
     } catch (e) {
       console.error(e);
       setError("Something went wrong. Try again, my love 💔");
@@ -63,7 +68,7 @@ export default function MissionQuestionModal({ mission, onClose }) {
             setError("");
           }}
           className="w-full h-44 rounded-md 
-                     bg-[#F3F3F3] text-[11px] text-[#4B3A32] p-2
+                     bg-[#F3F3F3] text-sm text-[#4B3A32] p-2
                      outline-none focus:ring-1 focus:ring-[#7D944F]"
         />
 
@@ -81,13 +86,15 @@ export default function MissionQuestionModal({ mission, onClose }) {
         )}
 
         <div className="mt-4 flex justify-center">
+          {!successMessage && (
           <button
             onClick={handleSend}
-            className="px-4 py-1.5 rounded-md bg-[#7D944F] text-white text-sm"
+            className="px-4 py-1.5 rounded-md bg-[#7D944F] active:bg-[#6B7E41] text-white text-sm"
             disabled={isSending}
           >
             {isSending ? "Sending..." : "Send"}
           </button>
+          )}
         </div>
       </div>
     </div>

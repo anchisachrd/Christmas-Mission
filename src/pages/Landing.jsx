@@ -20,6 +20,9 @@ export default function Landing({ onTapStart }) {
     4: "You have no choice again baby",
   };
 
+  const greenButton = "bg-[#7D944F] active:bg-[#6B7E41]";
+  const redButton = "bg-[#B06060] active:bg-[#9A4F4F]";
+
   // 🟢 buttons for each step
   const getButtonsForStep = () => {
     if (modalStep === 1) {
@@ -27,12 +30,12 @@ export default function Landing({ onTapStart }) {
       return [
         {
           label: "yes",
-          className: "bg-[#B06060]",
+          className: redButton,
           onClick: () => setModalStep(2),
         },
         {
           label: "yes",
-          className: "bg-[#7D944F]",
+          className: greenButton,
           onClick: () => setModalStep(2),
         },
       ];
@@ -43,7 +46,7 @@ export default function Landing({ onTapStart }) {
       return [
         {
           label: "next",
-          className: "bg-[#7D944F]",
+          className: greenButton,
           onClick: () => setModalStep(3),
         },
       ];
@@ -54,12 +57,12 @@ export default function Landing({ onTapStart }) {
       return [
         {
           label: "Alright 1",
-          className: "bg-[#B06060]",
+          className: redButton,
           onClick: () => setModalStep(4),
         },
         {
           label: "Alright 2",
-          className: "bg-[#7D944F]",
+          className: greenButton,
           onClick: () => setModalStep(4),
         },
       ];
@@ -70,10 +73,11 @@ export default function Landing({ onTapStart }) {
       return [
         {
           label: "next",
-          className: "bg-[#7D944F]",
-          onClick: () => {
+          className: greenButton,
+           onClick: () => {
             setShowAgreement(true);
             setModalStep(0);
+          
           },
         },
       ];
@@ -92,7 +96,11 @@ export default function Landing({ onTapStart }) {
         <div
           className={`
             transition-transform duration-500 ease-out
-            ${modalStep > 0 || showAgreement ? "translate-y-52" : "translate-y-0"}
+            ${
+              modalStep > 0 || showAgreement
+                ? "translate-y-52"
+                : "translate-y-0"
+            }
           `}
         >
           <div className="w-[220px]">

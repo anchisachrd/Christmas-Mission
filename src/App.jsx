@@ -1,23 +1,42 @@
-import Landing from './pages/Landing'
-import AgreementModal from './components/AgreementModal'
-import MissionScreen from './pages/MissionScreen'
-import Snow from './components/SnowDrop'
+import Landing from "./pages/Landing";
+import MissionScreen from "./pages/MissionScreen";
+import { useState, useEffect } from "react";
 
-import { useState } from 'react'  
+const PHASE_KEY = "xmas_phase_v1";
 
 export default function App() {
-  // phase: landing -> fadeOut -> missionFadeIn -> mission
-  const [phase, setPhase] = useState("landing");
+  // อ่านค่า phase จาก localStorage แค่ตอน mount ครั้งแรก
+  const [phase, setPhase] = useState(() => {
+    if (typeof window === "undefined") return "landing";
+
+    const saved = localStorage.getItem(PHASE_KEY);
+
+    // ถ้าเคยเข้า mission แล้ว ให้กลับมาที่ mission เลย
+    if (saved === "mission") {
+      return "mission";
+    }
+
+    // ค่า default ครั้งแรกที่ยังไม่เคยเล่น
+    return "landing";
+  });
+
+  // เวลาที่ phase เปลี่ยนเป็น "mission" ให้เซฟลง localStorage
+  useEffect(() => {
+    if (phase === "mission") {
+      localStorage.setItem(PHASE_KEY, "mission");
+    }
+  }, [phase]);
 
   const handleStartMissions = () => {
-    // called from AgreementModal -> Landing -> App
+    // เริ่ม transition จาก landing → fadeOut → missionFadeIn → mission
     setPhase("fadeOut");
 
-    // after fade-out, start mission fade-in
     setTimeout(() => {
       setPhase("missionFadeIn");
-      // after fade-in, settle to mission
-      setTimeout(() => setPhase("mission"), 700);
+
+      setTimeout(() => {
+        setPhase("mission"); // ตรงนี้จะไป trigger useEffect ด้านบน → เซฟ localStorage
+      }, 700);
     }, 700);
   };
 
@@ -26,16 +45,17 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#F7EEDC] overflow-hidden flex justify-center">
-      {/* ❄️ Snow as global overlay */}
-      {/* <Snow /> */}
-
       {/* Landing + modals */}
       {showLanding && (
         <div
           className={`
             absolute inset-0 flex justify-center
             transition-opacity duration-700
-            ${phase === "landing" ? "opacity-100" : "opacity-0 pointer-events-none"}
+            ${
+              phase === "landing"
+                ? "opacity-100"
+                : "opacity-0 pointer-events-none"
+            }
           `}
         >
           <Landing onTapStart={handleStartMissions} />

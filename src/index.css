@@ -75,3 +75,87 @@ body {
   animation: envelope-fade-in 0.4s ease-out;
 }
 
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+
+.gift-box-animation {
+  animation: giftFloat 2.2s ease-in-out infinite;
+  transform-origin: 72px 355px;
+}
+
+@keyframes giftFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% { /* กล่องลอยสูง + ส่ายเยอะสุดครั้งที่ 1 */
+    transform: translateY(-12px) rotate(-5deg);
+  }
+  50% { /* ลอยกลางๆ + ส่ายอีกข้าง */
+    transform: translateY(-9px) rotate(5deg);
+  }
+  75% { /* ลอยเบาลง */
+    transform: translateY(-6px) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes star-glow2 {
+  0%   { filter: drop-shadow(0 0 10px #FFD95A) drop-shadow(0 0 10px #FFD95A); }
+  50%  { filter: drop-shadow(0 0 2px #FFE28A) drop-shadow(0 0 5px #FFE28A); }
+  100% { filter: drop-shadow(0 0 10px #FFD95A) drop-shadow(0 0 10px #FFD95A); }
+}
+
+.tree-star2 {
+  animation: star-glow2 5s ease-in-out infinite;
+}
+
+
+
+.gift-ring-inner, .gift-ring-outer {
+  stroke: #f5d261;      /* สีเส้นวงกลม */
+  stroke-width: 1.5;
+  fill: none;
+  opacity: 0.7;
+  animation: ringInnerPulse 2.2s ease-in-out infinite;
+}
+
+/* วงกลมขยายเข้าออกช้าๆ */
+.gift-ring-animation {
+  animation: ringPulse 2s ease-in-out infinite;
+  transform-origin: 72.9px 360.25px;
+}
+
+@keyframes ringPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+.heart-msg-animation {
+  animation: heartPulse 2.2s ease-in-out infinite; 
+  transform-origin:  50px   130px;  
+}
+
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(0.9);
+  }
+
+  50% {
+    transform: scale(0.95);
+  }
+
+
+}
+
+
+
+

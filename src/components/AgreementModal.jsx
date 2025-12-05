@@ -92,7 +92,7 @@ export default function AgreementModal({onStart}) {
         <div className="flex justify-center">
           <button
             onClick={handleStart}
-            className="px-4 py-1.5 rounded-md text-white text-base bg-[#7D944F]"
+            className="px-4 py-1.5 rounded-md text-white text-base bg-[#7D944F] active:bg-[#6B7E41]"
           >
             Let's Start
           </button>

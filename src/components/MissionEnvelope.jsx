@@ -151,7 +151,7 @@ export default function MissionEnvelope({ isOpen, setIsOpen, onOpened, mission }
         {isOpen ? <OpenEnvelopeSvg /> : <ClosedEnvelopeSvg />}
       </div>
 
-      <p className="mt-6 text-base tracking-[0.1em] text-[#83593E] text-center font-cinzel">
+      <p className="mt-10 text-base tracking-[0.1em] text-[#83593E] text-center font-cinzel">
         {mission?.title}
       </p>
     </button>
