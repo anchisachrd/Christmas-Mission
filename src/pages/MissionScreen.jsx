@@ -11,20 +11,18 @@ import ChristmasDay from "./ChristmasDay.jsx";
 export default function MissionScreen() {
   const [showQuestionModal, setShowQuestionModal] = useState(false);
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
-   const [isMissionCompleted, setIsMissionCompleted] = useState(false);
+  const [isMissionCompleted, setIsMissionCompleted] = useState(false);
   const [showRewardModal, setShowRewardModal] = useState(false);
   const { mission, index, isAfterAllMissions } = getCurrentMission();
-  
 
   if (isAfterAllMissions) {
-  return <ChristmasDay />;
-}
+    return <ChristmasDay />;
+  }
 
-// key สำหรับเก็บสถานะ mission วันนี้ทำเสร็จหรือยัง
-  const storageKey =
-    mission != null ? `mission_completed_${index}` : null;
+  // key สำหรับเก็บสถานะ mission วันนี้ทำเสร็จหรือยัง
+  const storageKey = mission != null ? `mission_completed_${index}` : null;
 
-     // ⬅️ ตอน mount / mission เปลี่ยน → เช็คว่าเคยทำเสร็จแล้วไหม
+  // ⬅️ ตอน mount / mission เปลี่ยน → เช็คว่าเคยทำเสร็จแล้วไหม
   useEffect(() => {
     if (!storageKey) return;
 
@@ -36,6 +34,11 @@ export default function MissionScreen() {
     }
   }, [storageKey]);
 
+  useEffect(() => {
+    setIsEnvelopeOpen(false);
+    setShowQuestionModal(false);
+    setShowRewardModal(false);
+  }, [index]);
 
   const handleMissionSuccess = (answer) => {
     setIsMissionCompleted(true);
@@ -58,57 +61,57 @@ export default function MissionScreen() {
         <Snow />
 
         {/* CONTENT LAYER */}
-         <div className="relative z-10 w-full max-w-[390px] flex flex-col items-center">
-        {/* TOP — Countdown */}
-        <div className="mt-20">
-          <CountDown />
-        </div>
+        <div className="relative z-10 w-full max-w-[390px] flex flex-col items-center">
+          {/* TOP — Countdown */}
+          <div className="mt-20">
+            <CountDown />
+          </div>
 
-        {/* MIDDLE */}
-        <div className="mt-24">
-          {isMissionCompleted ? (
-            // หลังตอบเสร็จ → แสดง mailbox
-            <Mailbox onClick={() => setShowRewardModal(true)} />
-          ) : (
-            // ก่อนตอบเสร็จ → ซองจดหมาย
-            <MissionEnvelope
-              isOpen={isEnvelopeOpen}
-              setIsOpen={setIsEnvelopeOpen}
-              onOpened={() => setShowQuestionModal(true)}
-              mission={mission}
-            />
+          {/* MIDDLE */}
+          <div className="mt-24">
+            {isMissionCompleted ? (
+              // หลังตอบเสร็จ → แสดง mailbox
+              <Mailbox onClick={() => setShowRewardModal(true)} />
+            ) : (
+              // ก่อนตอบเสร็จ → ซองจดหมาย
+              <MissionEnvelope
+                isOpen={isEnvelopeOpen}
+                setIsOpen={setIsEnvelopeOpen}
+                onOpened={() => setShowQuestionModal(true)}
+                mission={mission}
+              />
+            )}
+          </div>
+
+          {/* ข้อความใต้ mailbox ตอน complete */}
+          {isMissionCompleted && (
+            <p className="mt-16 px-20 text-sm leading-relaxed text-[#83593E] text-center">
+              {mission?.completeText}
+            </p>
           )}
         </div>
 
-        {/* ข้อความใต้ mailbox ตอน complete */}
-        {isMissionCompleted && (
-          <p className="mt-16 px-20 text-sm leading-relaxed text-[#83593E] text-center">
-            {mission?.completeText}
-          </p>
+        {/* QUESTION MODAL — ให้เขาตอบคำถามเรา */}
+        {showQuestionModal && (
+          <MissionQuestionModal
+            mission={mission}
+            onClose={() => {
+              setShowQuestionModal(false);
+              setIsEnvelopeOpen(false);
+            }}
+            onSuccess={handleMissionSuccess} // 👈 เพิ่ม prop นี้
+          />
+        )}
+
+        {/* REWARD MODAL — คำตอบของเรา / ของขวัญ */}
+        {showRewardModal && mission && (
+          <RewardModal
+            text={mission.rewardText}
+            title={mission.rewardTitle}
+            onClose={() => setShowRewardModal(false)}
+          />
         )}
       </div>
-
-      {/* QUESTION MODAL — ให้เขาตอบคำถามเรา */}
-      {showQuestionModal && (
-        <MissionQuestionModal
-          mission={mission}
-          onClose={() => {
-            setShowQuestionModal(false);
-            setIsEnvelopeOpen(false);
-          }}
-          onSuccess={handleMissionSuccess}   // 👈 เพิ่ม prop นี้
-        />
-      )}
-
-      {/* REWARD MODAL — คำตอบของเรา / ของขวัญ */}
-      {showRewardModal && mission && (
-        <RewardModal
-          text={mission.rewardText} 
-          title={mission.rewardTitle}
-          onClose={() => setShowRewardModal(false)}
-        />
-      )}
-    </div>
     </>
   );
 }
