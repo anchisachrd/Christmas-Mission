@@ -3,6 +3,8 @@ import MissionScreen from "./pages/MissionScreen";
 import { useState, useEffect } from "react";
 
 const PHASE_KEY = "xmas_phase_v1";
+const TODAY_KEY = new Date().toISOString().slice(0,10);
+
 
 export default function App() {
   // อ่านค่า phase จาก localStorage แค่ตอน mount ครั้งแรก
@@ -26,6 +28,18 @@ export default function App() {
       localStorage.setItem(PHASE_KEY, "mission");
     }
   }, [phase]);
+
+  useEffect(() => {
+  const lastDay = localStorage.getItem("xmas_last_open_app_day");
+
+  // ถ้าวันใหม่ → reset phase เพราะเราต้องเข้า mission ของวันใหม่เสมอ
+  if (lastDay !== TODAY_KEY) {
+    localStorage.setItem("xmas_last_open_app_day", TODAY_KEY);
+    setPhase("mission");
+    localStorage.setItem(PHASE_KEY, "mission");
+  }
+}, []);
+
 
   const handleStartMissions = () => {
     // เริ่ม transition จาก landing → fadeOut → missionFadeIn → mission
