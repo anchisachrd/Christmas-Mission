@@ -1,12 +1,16 @@
 import { MISSIONS } from "../config/missions";
 
-const FIXED_START_DATE = new Date("2025-12-05T00:00:00");
+const FIXED_START_DATE = new Date("2025-12-06T00:00:00");
 const STORAGE_DAY_KEY = "xmas_last_open_date_v1";
 const STORAGE_MISSION_KEY = "xmas_locked_mission_index_v1";
 
 
 function getTodayKey() {
-  return new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+  const now = new Date(); // ใช้เวลา local ของ device
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0"); // 0-based
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
 }
 
 export function getCurrentMission() {
