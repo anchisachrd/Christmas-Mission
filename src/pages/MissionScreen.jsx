@@ -15,6 +15,11 @@ export default function MissionScreen() {
   const [showRewardModal, setShowRewardModal] = useState(false);
   const { mission, index, isAfterAllMissions } = getCurrentMission();
 
+  useEffect(() => {
+  localStorage.setItem("xmas_current_mission_index", index);
+}, [index]);
+
+
   if (isAfterAllMissions) {
     return <ChristmasDay />;
   }

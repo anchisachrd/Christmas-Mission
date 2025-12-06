@@ -71,7 +71,8 @@ export default function App() {
             ${phase === "missionFadeIn" ? "opacity-0" : "opacity-100"}
           `}
         >
-          <MissionScreen />
+          <MissionScreen key={localStorage.getItem("xmas_current_mission_index")} />
+
         </div>
       )}
     </div>
