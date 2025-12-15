@@ -32,7 +32,7 @@ export const MISSIONS = [
   {
     id: 4,
     title: "Mission 4",
-    question: "Give me some moments of us that I made you blush or feel butterflies",
+    question: "Give me some moments of us that \nI made you blush or feel butterflies",
     rewardTitle: "My Turn: The Moment \nThat You Made Me Flutter",
     rewardText:
       "I remember when we were walking the trail together in Red River, and we stopped to sit on the ground. You asked me about making it official but honestly, that wasn’t the moment that made me blush or feel butterflies. It was after my boss called me to come back early, and we had to go down the mountain. You helped me get up by holding both of my arms and pulling me up. It might sound strange, but no one has ever done that for me before. People usually just offer me a hand to grab, but you actually held me and pulled me up yourself. I probably looked like I didn’t feel anything at the time because I was trying so hard to hide it, but the truth is I was really fluttering inside",
