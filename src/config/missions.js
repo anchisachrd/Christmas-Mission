@@ -26,7 +26,7 @@ export const MISSIONS = [
     question: "Make a mini menu of what you’d cook or order for our Christmas dinner if we were together. 1 drink, 1 main, 1 dessert.",
     rewardText:
       "I’d make ribs as the main dish, along with some veggies I once cooked for you because I love them, and I’m pretty sure my recipe will be unforgettable😋One of the ribs does have to be spicy though, sorry about that, baby. I’d also cook some jasmine rice to go with the ribs. For drinks, just water. No soda, please🙄And for dessert, I’d make dark chocolate brownies, because that’s the only serious dessert I actually know how to make and we have to eat them with Ben and Jerry's ice cream!",
-    rewardTitle: "My Christmas Dinner Menu for Us",
+    rewardTitle: "My Christmas Dinner \nMenu for Us",
       completeText: "Mission 3 complete! \nI hope you’re hungry😄",
   },
   {
