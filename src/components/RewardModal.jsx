@@ -21,7 +21,7 @@ export default function RewardModal({ text, title, onClose }) {
           value={text}
           className="w-full h-72 rounded-md mt-5
                      bg-[#F3F3F3] text-[13px] text-[#4B3A32] p-2
-                     outline-none cursor-not-allowed text-justify"
+                     outline-none cursor-not-allowed text-justify whitespace-pre-line"
                     readOnly
         />
       </div>

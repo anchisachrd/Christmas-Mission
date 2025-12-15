@@ -57,7 +57,7 @@ export default function MissionQuestionModal({ mission, onClose, onSuccess }) {
           ✕
         </button>
 
-        <p className="text-[14px] text-center text-[#4B3A32] mt-5 mb-3">
+        <p className="text-[14px] text-center text-[#4B3A32] mt-5 mb-3 whitespace-pre-line">
           {mission?.question}
         </p>
 
@@ -69,7 +69,7 @@ export default function MissionQuestionModal({ mission, onClose, onSuccess }) {
           }}
           className="w-full h-44 rounded-md 
                      bg-[#F3F3F3] text-sm text-[#4B3A32] p-2
-                     outline-none focus:ring-1 focus:ring-[#7D944F]"
+                     outline-none focus:ring-1 focus:ring-[#7D944F] whitespace-pre-line"
         />
 
         {/* 🔥 validation message */}

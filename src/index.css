@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
   @apply bg-[#EEE2CE] font-goudy;
+  
 }
 
 /* falling animation */

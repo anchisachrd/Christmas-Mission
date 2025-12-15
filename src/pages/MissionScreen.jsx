@@ -82,7 +82,7 @@ export default function MissionScreen() {
 
         {/* ข้อความใต้ mailbox ตอน complete */}
         {isMissionCompleted && (
-          <p className="mt-16 px-20 text-sm leading-relaxed text-[#83593E] text-center">
+          <p className="mt-16 px-20 text-sm leading-relaxed text-[#83593E] text-center whitespace-pre-line">
             {mission?.completeText}
           </p>
         )}
