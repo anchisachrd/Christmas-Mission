@@ -1,6 +1,6 @@
 import { MISSIONS } from "../config/missions";
 
-const FIXED_START_DATE = new Date("2025-12-13T00:00:00");
+const FIXED_START_DATE = new Date("2025-12-12T00:00:00");
 const STORAGE_DAY_KEY = "xmas_last_open_date_v1";
 const STORAGE_MISSION_KEY = "xmas_locked_mission_index_v1";
 
