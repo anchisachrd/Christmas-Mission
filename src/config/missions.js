@@ -36,14 +36,14 @@ export const MISSIONS = [
     rewardTitle: "My Turn: The Moment \nThat You Made Me Flutter",
     rewardText:
       "I remember when we were walking the trail together in Red River, and we stopped to sit on the ground. You asked me about making it official but honestly, that wasn’t the moment that made me blush or feel butterflies. It was after my boss called me to come back early, and we had to go down the mountain. You helped me get up by holding both of my arms and pulling me up. It might sound strange, but no one has ever done that for me before. People usually just offer me a hand to grab, but you actually held me and pulled me up yourself. I probably looked like I didn’t feel anything at the time because I was trying so hard to hide it, but the truth is I was really fluttering inside",
-    completeText: "Your reward is waiting in the box. Don’t think I’m weird, okay? Love you",
+    completeText: "Your reward is waiting in the box \nDon’t think I’m weird, okay? Love you",
   },
   {
     id: 5,
     title: "Mission 5",
     question:
       "Anything you want to tell me but \nnever told me before?",
-    rewardTitle: "Something I’ve Never Told You Before",
+    rewardTitle: "Something I’ve Never \nTold You Before",
     rewardText: "This isn’t anything serious, but there are so many moments when I catch myself thinking, when I look at you, damn… is this really my boyfriend? Especially when you shave your beard, long hair, and don’t wear a hat. And then you just smile and look at me. I’m not sure if you notice it or not, but I get really shy. I don’t say much because I’m just blushing, so I stay quiet and try to act coo even though I’m really bad at it",
     completeText: "Mission 5 complete! \nI hope I'm not weird again🙄",
   },
