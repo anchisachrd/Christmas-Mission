@@ -16,7 +16,7 @@ export const MISSIONS = [
     question:
       "What do you wish I could understand better about you? (It can be about anything)",
     rewardText:
-      "I wish you could understand that I’m still learning how to express my feelings clearly. Sometimes I feel a lot more than I’m able to say. Also, I’ve never been in a long-distance relationship this serious before, which is why I need reassurance sometimes to feel that I still matter, that I’m seen, and that my presence isn’t taken for granted just because I’m always here",
+      "I wish you could understand that I’m still learning how to express my feelings clearly. Sometimes I feel a lot more than I’m able to say. I know I’m afraid to express my true feelings because my background has shaped me to be this way. It’s not only when I feel bad sometimes even when I feel love, I act cool because I don’t know how to express it verbally. Most of the time, I show it through my actions instead. But I’m willing to keep learning, especially with you. I’ve also never been in a long-distance relationship this serious before, which is why I need reassurance sometimes to feel that I still matter, that I’m seen, and that my presence isn’t taken for granted just because I’m always here",
      rewardTitle: "What I Wish You Could Understand Better About Me",
       completeText: "Mission 2 complete! \nThanks for telling me❤️",
   },
