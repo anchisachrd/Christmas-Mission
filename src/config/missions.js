@@ -61,6 +61,6 @@ export const MISSIONS = [
     question: "Write me your Christmas wish for me \n(it can be anything)",
     rewardTitle: "My Christmas Wish for You",
     rewardText: "I wish that everything you plan for next year comes true. That you get to see all the places you’ve been wanting to see, and that you’re surrounded by people who truly see your worth. I hope your days are filled with joy and with love that always feels safe. I also hope you get your passport soon, and that we can celebrate not just on Christmas, but in every little moment we share. I love you so much, Devin❤️",
-    completeText: "All missions completed🎉 \nThank you for playing along with me. There’s a special surprise waiting for you here tomorrow. Don't be late!",
+    completeText: "All missions completed🎉 \nThank you for playing along with me. There’s a special surprise waiting for you here at midnight. Don't be late!",
   },
 ];
