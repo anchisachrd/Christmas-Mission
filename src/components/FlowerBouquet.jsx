@@ -1,15 +1,15 @@
-import { useState,  } from "react";
-import cardImage from "../assets/devin-card.png";
+import { useState } from "react";
+import cardImage from "../assets/Christmas-card.png";
 export default function FlowerBouquet() {
   const [hasTakenFlower, setHasTakenFlower] = useState(false);
-    const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   const handleTakeFlower = () => {
     setClicked(true);
 
     setTimeout(() => {
       setHasTakenFlower(true);
-      downloadImportedFile(cardImage, "Christmas-card-from-Earn.png");
+      downloadImportedFile(cardImage, "From-Your-Babe.png");
     }, 150);
   };
 
